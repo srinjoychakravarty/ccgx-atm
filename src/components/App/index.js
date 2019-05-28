@@ -7,15 +7,15 @@ import Swal from 'sweetalert2';
 import './App.scss';
 
 const FOUNDATION_ADDRESS = 'TWiWt5SEDzaEqS6kE5gandWMNfxR2B5xzg';
-const CONTRACT_ADDRESS = 'TWAAJowwzmtYjJh6Q33GF7Q7wi2BAND1fV';
+const CONTRACT_ADDRESS = 'THvYD55iZw3YPFjL1nYSphsjzfCMkRoMwH';
 const INDCA_TOKEN_ID = 1001009;
 const SATVA_TOKEN_ID = 1001010;
 const LEAF_TOKEN_ID = 1001864;
 const SEED_TOKEN_ID = 1000001;
 const TERC_TOKEN_ID = 1000226;
-const LOCT_TOKEN_ID = 1000604; // Testing token ID : 1000292
+const LOCT_TOKEN_ID = 1000604;
 const MMT_TOKEN_ID = 1001071;
-const ACTIV_TOKEN_ID = 1002171;
+const ACTIV_TOKEN_ID = 1000522;
 const KIWI_TOKEN_ID = 1001050;
 class App extends React.Component {
 
@@ -685,10 +685,6 @@ class App extends React.Component {
 
 
 
-
-
-
-
                   <br/>
                   <br/>
                   <h4> Get TRC10 ACTIV Tokens in exchange with TRX for 5:1 ratio </h4>
@@ -708,8 +704,6 @@ class App extends React.Component {
                   <br/>
                   <br/>
                   <br/>
-
-
 
 
 
@@ -827,4 +821,3 @@ class App extends React.Component {
 }
 
 export default App;
-
