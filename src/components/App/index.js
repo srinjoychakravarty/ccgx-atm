@@ -814,12 +814,9 @@ class App extends React.Component {
 
                   <br/>
                   <br/>
+                  <span id="siteseal"><script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=cEitnXRnsCdRQ8bL5Uv00K4EcAAq1onYeAkzgTnnvFVxNsQS9Snz5neX5rD6"></script></span>
                 </div>
-                <div style="position: absolute; bottom: 5px; background-color: green">absolute bottom<span id="siteseal"><script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=cEitnXRnsCdRQ8bL5Uv00K4EcAAq1onYeAkzgTnnvFVxNsQS9Snz5neX5rD6"></script></span> </div>
-                <div class="bottomright">bottomright<span id="siteseal"><script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=cEitnXRnsCdRQ8bL5Uv00K4EcAAq1onYeAkzgTnnvFVxNsQS9Snz5neX5rD6"></script></span></div>
-                <footer>footer<span id="siteseal"><script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=cEitnXRnsCdRQ8bL5Uv00K4EcAAq1onYeAkzgTnnvFVxNsQS9Snz5neX5rD6"></script></span></footer>
               </div>
-
         );
     }
 }
