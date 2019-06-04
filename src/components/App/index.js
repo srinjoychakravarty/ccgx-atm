@@ -15,7 +15,6 @@ const SEED_TOKEN_ID = 1000001;
 const TERC_TOKEN_ID = 1000226;
 const LOCT_TOKEN_ID = 1000604;
 const MMT_TOKEN_ID = 1001071;
-const ACTIV_TOKEN_ID = 1000522;
 const KIWI_TOKEN_ID = 1001050;
 class App extends React.Component {
 
@@ -30,7 +29,6 @@ class App extends React.Component {
             gettrxTERCamount: 0,
             gettrxLOCTamount: 0,
             gettrxMMTamount: 0,
-            gettrxACTIVamount: 0,
             gettrxKIWIamount: 0,
             address: '',
             INDCAcontractbalance:0,
@@ -40,7 +38,6 @@ class App extends React.Component {
             TRECcontractbalance:0,
             LOCTcontractbalance:0,
             MMTcontractbalance:0,
-            ACTIVcontractbalance:0,
             KIWIcontractbalance:0,
             TRXcontractbalance:0,
             newowner:'',
@@ -60,7 +57,6 @@ class App extends React.Component {
         this.updateTERCValue = this.updateTERCValue.bind(this)
         this.updateLOCTValue = this.updateLOCTValue.bind(this)
         this.updateMMTValue = this.updateMMTValue.bind(this)
-        this.updateACTIVValue = this.updateACTIVValue.bind(this)
         this.updateKIWIValue = this.updateKIWIValue.bind(this)
         this.updateWithdrawTRXAddressValue = this.updateWithdrawTRXAddressValue.bind(this)
         this.updateWithdrawTRXAmountValue = this.updateWithdrawTRXAmountValue.bind(this)
@@ -157,7 +153,6 @@ class App extends React.Component {
             TERCcontractbalance : parseFloat((await Utils.contract.getTRC10TokenBalance(TERC_TOKEN_ID).call()).toString()),
             LOCTcontractbalance : parseFloat((await Utils.contract.getTRC10TokenBalance(LOCT_TOKEN_ID).call()).toString()),
             MMTcontractbalance : parseFloat((await Utils.contract.getTRC10TokenBalance(MMT_TOKEN_ID).call()).toString()),
-            ACTIVcontractbalance : parseFloat((await Utils.contract.getTRC10TokenBalance(ACTIV_TOKEN_ID).call()).toString()),
             KIWIcontractbalance : parseFloat((await Utils.contract.getTRC10TokenBalance(KIWI_TOKEN_ID).call()).toString()),
             TRXcontractbalance : parseFloat((await Utils.contract.getBalance().call()).toString())/1000000,
 
@@ -343,29 +338,6 @@ class App extends React.Component {
     }
     /////////////////////////////////////// SwapTRXMMT /////////////////////////////////
 
-
-    /////////////////////////////////////// SwapTRXACTIV /////////////////////////////////
-    async SwapTRXACTIV(_amount){
-
-        Utils.contract.FiveToOneSwapTRC10(this.state.address, ACTIV_TOKEN_ID).send({
-            shouldPollResponse: true,
-            callValue: Utils.tronWeb.toSun(_amount*5)
-        }).then(res => Swal({
-            title:'Transfer Successful',
-            type: 'success'
-        })).catch(err => Swal({
-            title:'Transfer Failed',
-            type: 'error'
-        }));
-    }
-
-    updateACTIVValue (evt) {
-        console.log('gettrxACTIVamount : ', this.state.gettrxACTIVamount);
-            this.setState({
-              gettrxACTIVamount: evt.target.value
-            });
-    }
-    /////////////////////////////////////// SwapTRXACTIV /////////////////////////////////
 
 
     /////////////////////////////////////// SwapTRXKIWI /////////////////////////////////
@@ -676,28 +648,6 @@ class App extends React.Component {
                                                                        event.preventDefault()
                                                                        this.SwapTRXMMT(this.state.gettrxMMTamount)
                                                                      }  }>Swap TRX to MMT
-                  </button>
-                  <br/>
-                  <br/>
-                  <br/>
-                  <br/>
-                  <br/>
-
-
-
-                  <br/>
-                  <br/>
-                  <h4> Get TRC10 ACTIV Tokens in exchange with TRX for 5:1 ratio </h4>
-                  <p> <i> Current TRC10 ACTIV Supply in Smart Contract : {this.state.ACTIVcontractbalance} </i></p>
-                  <br/>
-                  <p>Type number of ACTIV tokens to exchange</p>
-                  <input style={{ width:"200px" }} value={this.state.gettrxACTIVamount} onChange={this.updateACTIVValue}/>
-                  <br/>
-                  <br/>
-                  <button className='btn btn-danger' onClick={(event) => {
-                                                                       event.preventDefault()
-                                                                       this.SwapTRXACTIV(this.state.gettrxACTIVamount)
-                                                                     }  }>Swap TRX to ACTIV
                   </button>
                   <br/>
                   <br/>
