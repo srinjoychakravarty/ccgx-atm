@@ -11,7 +11,6 @@ const CONTRACT_ADDRESS = 'THvYD55iZw3YPFjL1nYSphsjzfCMkRoMwH';
 const INDCA_TOKEN_ID = 1001009;
 const SATVA_TOKEN_ID = 1001010;
 const LEAF_TOKEN_ID = 1001864;
-const SEED_TOKEN_ID = 1000001;
 const TERC_TOKEN_ID = 1000226;
 const LOCT_TOKEN_ID = 1000604;
 const MMT_TOKEN_ID = 1001071;
@@ -25,7 +24,6 @@ class App extends React.Component {
             gettrxINDCAamount: 0,
             gettrxSATVAamount: 0,
             gettrxLEAFamount: 0,
-            gettrxSEEDamount: 0,
             gettrxTERCamount: 0,
             gettrxLOCTamount: 0,
             gettrxMMTamount: 0,
@@ -34,7 +32,6 @@ class App extends React.Component {
             INDCAcontractbalance:0,
             SATVAcontractbalance:0,
             LEAFcontractbalance:0,
-            SEEDcontractbalance:0,
             TRECcontractbalance:0,
             LOCTcontractbalance:0,
             MMTcontractbalance:0,
@@ -53,7 +50,6 @@ class App extends React.Component {
         this.updateINDCAValue = this.updateINDCAValue.bind(this)
         this.updateSATVAValue = this.updateSATVAValue.bind(this)
         this.updateLEAFValue = this.updateLEAFValue.bind(this)
-        this.updateSEEDValue = this.updateSEEDValue.bind(this)
         this.updateTERCValue = this.updateTERCValue.bind(this)
         this.updateLOCTValue = this.updateLOCTValue.bind(this)
         this.updateMMTValue = this.updateMMTValue.bind(this)
@@ -149,7 +145,6 @@ class App extends React.Component {
             INDCAcontractbalance : parseFloat((await Utils.contract.getTRC10TokenBalance(INDCA_TOKEN_ID).call()).toString()),
             SATVAcontractbalance : parseFloat((await Utils.contract.getTRC10TokenBalance(SATVA_TOKEN_ID).call()).toString()),
             LEAFcontractbalance : parseFloat((await Utils.contract.getTRC10TokenBalance(LEAF_TOKEN_ID).call()).toString()),
-            SEEDcontractbalance : parseFloat((await Utils.contract.getTRC10TokenBalance(SEED_TOKEN_ID).call()).toString()),
             TERCcontractbalance : parseFloat((await Utils.contract.getTRC10TokenBalance(TERC_TOKEN_ID).call()).toString()),
             LOCTcontractbalance : parseFloat((await Utils.contract.getTRC10TokenBalance(LOCT_TOKEN_ID).call()).toString()),
             MMTcontractbalance : parseFloat((await Utils.contract.getTRC10TokenBalance(MMT_TOKEN_ID).call()).toString()),
@@ -242,28 +237,7 @@ class App extends React.Component {
     /////////////////////////////////////// SwapTRXLEAF /////////////////////////////////
 
 
-    /////////////////////////////////////// SwapTRXSEED /////////////////////////////////
-    async SwapTRXSEED(_amount){
 
-        Utils.contract.FiveToOneSwapTRC10(this.state.address, SEED_TOKEN_ID).send({
-            shouldPollResponse: true,
-            callValue: Utils.tronWeb.toSun(_amount*5)
-        }).then(res => Swal({
-            title:'Transfer Successful',
-            type: 'success'
-        })).catch(err => Swal({
-            title:'Transfer Failed',
-            type: 'error'
-        }));
-    }
-
-    updateSEEDValue (evt) {
-        console.log('gettrxSEEDamount : ', this.state.gettrxSEEDamount);
-            this.setState({
-              gettrxSEEDamount: evt.target.value
-            });
-    }
-    /////////////////////////////////////// SwapTRXSEED /////////////////////////////////
 
     /////////////////////////////////////// SwapTRXTERC /////////////////////////////////
     async SwapTRXTERC(_amount){
@@ -548,33 +522,6 @@ class App extends React.Component {
                   <br/>
                   <br/>
                   <hr style={{color: 'white', backgroundColor: 'white', height: 0.5}}/>
-
-
-
-
-
-
-                  <br/>
-                  <br/>
-                  <h4> Get TRC10 SEED Tokens in exchange with TRX for 5:1 ratio </h4>
-                  <p> <i> Current TRC10 SEED Supply in Smart Contract : {this.state.SEEDcontractbalance} </i></p>
-                  <br/>
-                  <p>Type number of SEED tokens to exchange</p>
-                  <input style={{ width:"200px" }} value={this.state.gettrxSEEDamount} onChange={this.updateSEEDValue}/>
-                  <br/>
-                  <br/>
-                  <button className='btn btn-danger' onClick={(event) => {
-                                                                       event.preventDefault()
-                                                                       this.SwapTRXSEED(this.state.gettrxSEEDamount)
-                                                                     }  }>Swap TRX to SEED
-                  </button>
-                  <br/>
-                  <br/>
-                  <br/>
-                  <br/>
-                  <br/>
-
-
 
 
 
