@@ -554,7 +554,7 @@ class App extends React.Component {
 
 
 
-y
+
                   <br/>
                   <p> Amount to deposit in Smart Contract : </p>
                   <input style={{ width:"80px" }} value={this.state.deposittrxvalue} onChange={this.updateDepositTRXValue}/>
