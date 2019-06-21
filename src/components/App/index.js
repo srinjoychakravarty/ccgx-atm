@@ -36,7 +36,7 @@ class App extends React.Component {
             KIWIcontractbalance:0,
             TRXcontractbalance:0,
             newowner:'',
-            deposittrxvalue:0
+            deposittrxvalue:0,
 
               tronWeb: {
                   installed: false,
@@ -554,7 +554,7 @@ class App extends React.Component {
 
 
 
-
+y
                   <br/>
                   <p> Amount to deposit in Smart Contract : </p>
                   <input style={{ width:"80px" }} value={this.state.deposittrxvalue} onChange={this.updateDepositTRXValue}/>
