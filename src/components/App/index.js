@@ -36,9 +36,7 @@ class App extends React.Component {
             KIWIcontractbalance:0,
             TRXcontractbalance:0,
             newowner:'',
-            deposittrxvalue:0,
-            withdrawtrxaddress:'',
-            withdrawtrxamount:0,
+            deposittrxvalue:0
 
               tronWeb: {
                   installed: false,
@@ -51,8 +49,6 @@ class App extends React.Component {
         this.updateLOCTValue = this.updateLOCTValue.bind(this)
         this.updateMMTValue = this.updateMMTValue.bind(this)
         this.updateKIWIValue = this.updateKIWIValue.bind(this)
-        this.updateWithdrawTRXAddressValue = this.updateWithdrawTRXAddressValue.bind(this)
-        this.updateWithdrawTRXAmountValue = this.updateWithdrawTRXAmountValue.bind(this)
         this.updateDepositTRXValue = this.updateDepositTRXValue.bind(this)
         this.updateTransferOwnershipValue = this.updateTransferOwnershipValue.bind(this)
 
@@ -310,39 +306,7 @@ class App extends React.Component {
     /////////////////////////////////////// SwapTRXKIWI /////////////////////////////////
 
 
-    /////////////////////////////////// withdrawTRX /////////////////////////////
-    withdrawTRX(_address, _amount){
 
-        Utils.contract.withdrawTRX(_address, _amount).send({
-            shouldPollResponse: true,
-            callValue: 0
-        }).then(res => Swal({
-            title:'Transfer Successful',
-            type: 'success'
-        })).catch(err => Swal({
-            title:'Transfer Failed',
-            type: 'error'
-
-        }));
-
-    }
-
-    updateWithdrawTRXAmountValue (evt) {
-        this.setState({
-          withdrawtrxamount: evt.target.value
-        });
-    console.log('withdrawtrxamount : ', this.state.withdrawtrxamount);
-
-    }
-
-    updateWithdrawTRXAddressValue (evt) {
-        this.setState({
-          withdrawtrxaddress: evt.target.value
-        });
-    console.log('withdrawtrxaddress : ', this.state.withdrawtrxaddress);
-
-    }
-    /////////////////////////////////// withdrawTRX END /////////////////////////////
 
     /////////////////////////////////// depositTRX /////////////////////////////
     depositTRX(_amount){
@@ -585,27 +549,6 @@ class App extends React.Component {
 
                   <p> <i> Current TRX Supply in Smart Contract : {this.state.TRXcontractbalance} </i></p>
 
-
-
-
-
-
-                  <br/>
-                  <p> Address of transfer : </p>
-                  <input style={{ width:"400px" }} value={this.state.withdrawtrxaddress} onChange={this.updateWithdrawTRXAddressValue}/>
-                  <br/>
-                  <br/>
-                  <p> Amount to transfer from contract : </p>
-                  <input style={{ width:"80px" }} value={this.state.withdrawtrxamount} onChange={this.updateWithdrawTRXAmountValue}/>
-                  <br/>
-                  <br/>
-                  <button className='btn btn-danger' onClick={(event) => {
-                                                                       event.preventDefault()
-                                                                       this.withdrawTRX(this.state.withdrawtrxaddress, this.state.withdrawtrxamount)
-                                                                     }  }>Withdraw
-                  </button>
-                  <br/>
-                  <br/>
 
 
 
