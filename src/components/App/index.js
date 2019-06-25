@@ -544,8 +544,7 @@ class App extends React.Component {
 
 
 
-                  <hr style={{color: 'red', backgroundColor: 'red', height: 0.5}}/>
-                  <p style={{color: 'red'}}> <i> *For Official Use Only </i></p>
+
 
                   <p> <i> Current TRX Supply in Smart Contract : {this.state.TRXcontractbalance} </i></p>
 
@@ -556,34 +555,21 @@ class App extends React.Component {
 
 
                   <br/>
-                  <p> Amount to deposit in Smart Contract : </p>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <p>Donate Tron to Charity and Server Costs: </p>
                   <input style={{ width:"80px" }} value={this.state.deposittrxvalue} onChange={this.updateDepositTRXValue}/>
                   <br/>
                   <br/>
                   <button className='btn btn-danger' onClick={(event) => {
                                                                        event.preventDefault()
                                                                        this.depositTRX(this.state.deposittrxvalue)
-                                                                     }  }>Deposit
+                                                                     }  }>Donate 🙏 :pray: document.body.innerText = String.fromCodePoint(0x1F64F);
+                                                                     document.body.innerText = "😀";
                   </button>
-                  <br/>
-                  <br/>
 
 
-
-
-
-
-
-                  <br/>
-                  <p> Address of new Owner : </p>
-                  <input style={{ width:"400px" }} value={this.state.newowner} onChange={this.updateTransferOwnershipValue}/>
-                  <br/>
-                  <br/>
-                  <button className='btn btn-danger' onClick={(event) => {
-                                                                       event.preventDefault()
-                                                                       this.transferOwnership(this.state.newowner)
-                                                                     }  }>Transfer Ownership
-                  </button>
                   <br/>
                   <br/>
                   <hr style={{color: 'red', backgroundColor: 'red', height: 0.5}}/>
