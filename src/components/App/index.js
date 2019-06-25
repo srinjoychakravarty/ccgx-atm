@@ -558,15 +558,14 @@ class App extends React.Component {
                   <br/>
                   <br/>
                   <br/>
-                  <p>Donate Tron to Charity and Server Costs: </p>
+                  <p>Donate 🙏 Tron for Charity and Server Costs: </p>
                   <input style={{ width:"80px" }} value={this.state.deposittrxvalue} onChange={this.updateDepositTRXValue}/>
                   <br/>
                   <br/>
                   <button className='btn btn-danger' onClick={(event) => {
                                                                        event.preventDefault()
                                                                        this.depositTRX(this.state.deposittrxvalue)
-                                                                     }  }>Donate 🙏 :pray: document.body.innerText = String.fromCodePoint(0x1F64F);
-                                                                     document.body.innerText = "😀";
+                                                                     }  }>Donate
                   </button>
 
 
